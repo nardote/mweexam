@@ -18,7 +18,7 @@ services:
 
   node:
     image: node
-    command: bash -c "npm install --prefix ./ProblemB/server && npm install --prefix ./ProblemB/front && npm install --prefix ./ProblemA/solution && npm install nodemon -g && npm start --prefix ./ProblemB/server &  npm run dev --prefix ./ProblemB/front & npm run dev --prefix ./ProblemA/solution"
+    command: bash ./startup
     ports:
       - "3000:3000"
       - "3001:3001"
