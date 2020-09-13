@@ -1,0 +1,41 @@
+version: '2'
+services:
+  mysql5:
+    image: mysql:${MYSQL_VERSION}
+    env_file: .env
+    ports:
+      - "${DATABASE_BINDED_PORT}:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DATABASE_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DATABASE_NAME}
+      MYSQL_USER: ${DATABASE_USER}
+      MYSQL_PASSWORD: ${DATABASE_PASSWORD}
+      TZ: "America/Argentina/Buenos_Aires"
+    volumes:
+      - "./.docker/volumes/mysql:/var/lib/mysql"
+    networks:
+      - backd
+
+  node:
+    image: node
+    command: bash -c "npm install nodemon -g && npm start --prefix ./ProblemB/server &  npm run dev --prefix ./ProblemB/front & npm run dev --prefix ./ProblemA/solution"
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+      - "3002:3002"
+    volumes: 
+      - ./:/usr/src/app
+    working_dir: '/usr/src/app'
+    environment:
+      - "TZ=America/Argentina/Buenos_Aires"
+    networks:
+      - backd
+
+networks:
+  ## BEGIN networks ##
+  backd:
+    ipam:
+      config:
+        - subnet: ${NETWORK_SUBNET}
+          gateway: ${NETWORK_GATEWAY}
+  ## END networks ##

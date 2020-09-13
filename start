@@ -1,0 +1,13 @@
+#!/bin/bash
+docker-compose -f docker-compose.yml up --remove-orphans -d --force-recreate
+
+
+cat << EOF
+
+    Problem A
+    http://localhost:3000
+    Problem B
+    http://localhost:3001
+    http://localhost:3001/admin
+
+EOF

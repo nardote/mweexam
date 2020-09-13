@@ -1,0 +1,3 @@
+#!/bin/bash
+docker-compose -f docker-compose.yml exec node bash -c "cd ProblemB/server; npx sequelize db:migrate"
+docker-compose -f docker-compose.yml exec node bash -c "cd ProblemB/server; npx sequelize db:seed:all"

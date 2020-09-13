@@ -1,0 +1,13 @@
+.reserved {
+    color:#cccccc;
+    padding: 5px;
+}
+
+.time {
+    padding: 5px;
+    color: #333;
+}
+
+.inline {
+    display: inline-block;
+}

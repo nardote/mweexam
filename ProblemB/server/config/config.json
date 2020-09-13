@@ -1,0 +1,26 @@
+{
+    "development": {
+        "username": "root",
+        "password": "root",
+        "database": "docker_db",
+        "host": "mysql5",
+        "dialect": "mysql",
+        "timezone": "-03:00"  
+    },
+    "test": {
+        "username": "root",
+        "password": "root",
+        "database": "docker_db",
+        "host": "mysql5",
+        "dialect": "mysql",
+        "timezone": "-03:00"  
+    },
+    "production": {
+        "username": "root",
+        "password": "root",
+        "database": "docker_db",
+        "host": "mysql5",
+        "dialect": "mysql",
+        "timezone": "-03:00"  
+    }
+}

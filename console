@@ -1,0 +1,4 @@
+#!/bin/bash
+COMMAND=" "$@
+echo "Ejecutando: "$COMMAND;
+docker-compose -f docker-compose.yml exec node bash -c "${COMMAND}"
