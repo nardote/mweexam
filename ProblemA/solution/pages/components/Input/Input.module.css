@@ -1,0 +1,56 @@
+.container {
+    display: grid;
+    grid-template-columns: auto [input] 30% 40px [output] 30% auto;
+    grid-template-rows: 25% [box] 300px 25%;
+}
+
+.container .title {
+    grid-column-start: input;
+    grid-column-end: output;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    font-size:18px;
+}
+
+.input {
+    
+    grid-column-start: input;
+    grid-column-end: input;
+    grid-row-start: box;
+    grid-row-end: box;
+
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
+
+.input textarea {
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+
+
+@media (max-width: 600px) {
+    .input {
+    
+        grid-column-start: box;
+        grid-column-end: box;
+        grid-row-start: input;
+        grid-row-end: input;
+    
+    }
+
+    .container {
+        grid-template-columns: 10% [box] auto 10%;
+        grid-template-rows: 10% [input] 40vh [output] 40vh 10%;
+    }
+
+    .container .title {
+        grid-column-start: box;
+        grid-column-end: box;
+        grid-row-start: 1;
+        grid-row-end: 1;
+    }
+}
+

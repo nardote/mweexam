@@ -1,0 +1,30 @@
+.output {
+    
+    grid-column-start: output;
+    grid-column-end: output;
+    grid-row-start: box;
+    grid-row-end: box;
+
+    padding: 10px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+}
+
+.output li {
+    list-style: none;
+}
+
+.output .errors li {
+    color: #ff6600;
+}
+
+@media (max-width: 600px) {
+    .output {
+    
+        grid-column-start: box;
+        grid-column-end: box;
+        grid-row-start: output;
+        grid-row-end: output;
+    
+    }
+}
