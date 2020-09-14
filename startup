@@ -1,9 +1,27 @@
 #!/bin/bash
-npm install --prefix ./ProblemB/server
-npm install --prefix ./ProblemB/front
-npm install --prefix ./ProblemA/solution
 npm install nodemon -g
 
+
+CONTAINER_ALREADY_STARTED="CONTAINER_ALREADY_STARTED_PLACEHOLDER"
+if [ ! -e $CONTAINER_ALREADY_STARTED ]; then
+    touch $CONTAINER_ALREADY_STARTED
+    echo "-- First container startup --"
+
+    npm install --prefix ./ProblemB/server
+    npm install --prefix ./ProblemB/front
+    npm install --prefix ./ProblemA/solution
+
+    
+    cd /usr/src/app/ProblemB/server; npx sequelize db:migrate
+    cd /usr/src/app/ProblemB/server; npx sequelize db:seed:all
+    
+else
+    echo "-- Not first container startup --"
+fi
+
+
+cd /usr/src/app
 npm start --prefix ./ProblemB/server &
 npm run dev --prefix ./ProblemB/front &
 npm run dev --prefix ./ProblemA/solution
+
